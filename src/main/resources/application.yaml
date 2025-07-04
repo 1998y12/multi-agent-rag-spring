@@ -1,0 +1,29 @@
+server:
+  port: 6666
+
+spring:
+  application:
+    name: ai-demo-application
+
+  ai:
+    # 这里用的是open ai模型，实际可以用阿里云百炼平台，集成到了spring ai alibaba里面
+    openai:
+      # openai api key
+      api-key: sk-yourapikey
+      # 此处填写openai接口地址，或代理商提供的地址
+      base-url: https://api.openai.com
+      # 聊天模型的配置
+      chat:
+        options:
+          model: gpt-4o-mini
+          max-tokens: 4096
+        completions-path: /v1/chat/completions
+      # 词嵌入模型的配置，用于词向量化
+      embedding:
+        options:
+          model: text-embedding-3-small
+
+# 自定义的网络搜索工具api，这里用的是tavily
+tavily:
+  api-key: tvly-dev-yourapikey
+  base-url: https://api.tavily.com
